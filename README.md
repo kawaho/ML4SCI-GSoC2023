@@ -24,11 +24,13 @@ Random horizontal and vertical flips, and rotations are used.
 Testing AUC score of 0.787 is achieved.
 ## Task 3
 ### Architecture
-A basic vision transformer [4] is built except a global average pooling [5] instead of a CLS token is used as they are found to have very similar performance.
-### Data cleaning
+A basic vision transformer [4] is built. A patch size of 4x4 is used with a latent dimension of 48 for each patch. A hidden dimension of 96 is used for the linear layers. 4 heads are used for the multi-head attention layers and a total of 8 repeating blocks of the transformer structure are used. At the final layer, a global average pooling [5] over the patch dimension is used instead of a CLS token as they are found to provide very similar performance
+### Data cleaning.
 Same as Task 1.
 ### Data augmentation
+Same as Task 1.
 ### Training details
+80-20% split for the training and testing set. 10% of the training set is used for validation. Batch size of 64 is used. This is larger than Task 1 since the transformer structure is more computationally intensive. Adam optimizer [2] with the default setting in pytorch is used with 10 early stopping rounds. Learning rate is reduced by half when the validation AUC stops improving for 5 epochs.
 ### Results and discussion
 ## References:
 [1]: Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks for large-scale image recognition." arXiv preprint arXiv:1409.1556 (2014).  

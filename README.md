@@ -34,9 +34,9 @@ Random horizontal and vertical flips, and rotations are used.
 ### Results and discussion
 Testing AUC score of 0.808 is achieved, which is < 1% worse than the performance of the CNN trained in Task 1.  
   
-ViT has recently found to outperform traditional CNN in image classifications and other computer vision tasks, possibly due to its ability to access global features in early layers and to strongly propagate the learned representations throughout the whole architecture [6]. However, ViT does not have inductive bias (locality, 2D structure, and translation equivariance) on 2D images as a CNN does. Hence, it needs more data to be trained in comparison. This is observed empirically that adding random rotations augmentation has improved the training performance in this task but not in Task 1, even Task 1 has almost four times more parameters. More layers/ higher latent dimensions/ higher number of heads were attempted but did not result in significant improvements. This could be another indication that the data size avaliable is the limiting factor here. 
+ViT has recently found to outperform traditional CNN in image classifications and other computer vision tasks, possibly due to its ability to access global features in early layers and to strongly propagate the learned representations throughout the whole architecture [6]. However, ViT does not have inductive bias (locality, 2D structure, and translation equivariance) on 2D images as a CNN does. Hence, it needs more data to be trained in comparison. This is observed empirically from the fact that adding random rotations augmentation has improved the testing performance in this task but not in Task 1, even Task 1 has almost four times more parameters. More layers/ higher latent dimensions/ higher number of heads were attempted but did not result in significant improvements. This could be another indication that the data size avaliable is the limiting factor here. 
   
-For electron/photon ID tasks, local energy distribution could be very important since electrons tend to be more spread out along phi because of its charge under the magnet in CMS. In the future, relative position embedding could be considered to better utilize this information.
+For electron/photon ID tasks, local energy distribution could be very important since electrons tend to be more spread out along phi because of its charge under the magnet in CMS. In the future, relative position embedding [7] could be considered to better utilize this information. Other novel architectures, like ViT with a CNN-like channel expanding structure [8] or methods to diversify the attention map [9] could be interesting to be investigated.
 
 ## References:
 [1]: Simonyan, Karen, and Andrew Zisserman. "Very deep convolutional networks for large-scale image recognition." arXiv preprint arXiv:1409.1556 (2014).  
@@ -49,4 +49,10 @@ For electron/photon ID tasks, local energy distribution could be very important 
   
 [5]: Lin, Min, Qiang Chen, and Shuicheng Yan. "Network in network." arXiv preprint arXiv:1312.4400 (2013).  
   
-[6]: Raghu, Maithra, et al. "Do vision transformers see like convolutional neural networks?." Advances in Neural Information Processing Systems 34 (2021): 12116-12128.
+[6]: Raghu, Maithra, et al. "Do vision transformers see like convolutional neural networks?." Advances in Neural Information Processing Systems 34 (2021): 12116-12128.  
+  
+[7]: Wu, Kan, et al. "Rethinking and improving relative position encoding for vision transformer." Proceedings of the IEEE/CVF International Conference on Computer Vision. 2021.  
+  
+[8]: Wang, Wenhai, et al. "Pyramid vision transformer: A versatile backbone for dense prediction without convolutions." Proceedings of the IEEE/CVF international conference on computer vision. 2021.  
+  
+[9]: Su, Hui, et al. "Re-attention transformer for weakly supervised object localization." arXiv preprint arXiv:2208.01838 (2022).
